@@ -1,10 +1,9 @@
-import axios from 'axios';
 import {
   FETCH_PRODUCTS_REQUEST,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
 } from '../constants';
-
+import axios from '../../api/index';
 export const fetchProductsRequest = () => ({
   type: FETCH_PRODUCTS_REQUEST,
 });
@@ -23,7 +22,7 @@ export const fetchProducts = () => {
   return (dispatch) => {
     dispatch(fetchProductsRequest);
     axios
-      .get('https://smktesting.herokuapp.com/api/products/')
+      .get('/api/products')
       .then((response) => {
         const products = response.data;
         dispatch(fetchProductsSuccess(products));

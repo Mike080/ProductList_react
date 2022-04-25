@@ -3,6 +3,7 @@ import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import Product from './components/Product';
 import { fetchProducts } from './redux/actions/actionCreator';
+import Form from './components/Form';
 
 function App() {
   useEffect(() => {
@@ -16,7 +17,7 @@ function App() {
   ) : products.error ? (
     <h2>{products.error}</h2>
   ) : (
-    <div className="App">
+    <div className="App contsiner">
       <h2>Products</h2>
       <ul>
         {products &&
@@ -30,6 +31,7 @@ function App() {
             />
           ))}
       </ul>
+      <Form />
     </div>
   );
 }
